@@ -1,0 +1,39 @@
+1. ¿Qué es un middleware?
+Middleware es software que se sitúa entre un sistema operativo y las aplicaciones que se ejecutan en él. Básicamente, funciona como una capa de traducción oculta para permitir la comunicación y la administración de datos en aplicaciones distribuidas. A veces, se le denomina “plumbing” (tuberías), porque conecta dos aplicaciones para que se puedan pasar fácilmente datos y bases de datos por una “canalización”. El uso de middleware permite a los usuarios hacer solicitudes como el envío de formularios en un explorador web o permitir que un servidor web devuelva páginas web dinámicas en función del perfil de un usuario.
+
+2. ¿Cuál es el significado del término “MEAN stack” ?
+Se conoce con el acrónimo de MEAN (formado por MongoDB, Express, AngularJS y NodeJS) al stack o compilación de estas tecnologías para desarrollar aplicaciones web usando como único lenguaje de programación javascript en el servidor, en el cliente y en la base de datos.
+
+
+3. ¿Cuáles son las características/funcionalidades que Express ofrece como middleware?
+En Express tenemos funciones que reciben una entrada (request) y una salida (response). Lo que sucede entre la entrada y la salida es el controlador.
+
+Para que se seleccione una u otra función de middleware hace falta mapear las funciones a una url determinada. Aquí tenemos dos opciones:
+
+Mapear al objeto aplicación con app.use(«url», funciónMiddleware), o con app.[MétodoHTTP] como por ejemplo app.get o app.post;
+Mapear a un objeto router. Se hace del mismo modo: router.use(«url», funcionMiddleware) o también con route.[MétodoHTTP] como por ejemplo route.delete o route.post.
+La diferencia entre uno y otro método es más bien de organización. Si nos decantamos por app.use (o sus derivados) se mapeará a la aplicación directamente. Si usamos un router, lo hará al router, pero con la ventaja de que este es más específico y podremos, por ejemplo, aplicarle funciones de autentiación.
+
+
+4. ¿Qué es una ruta en express?
+Las rutas es la forma de declarar URLs para tu aplicación web. Por ejemplo, '/' es la página principal.
+
+
+5. ¿Qué es un “route handler” en express y para qué se utiliza?
+Como término genérico, un controlador de ruta es un código que busca una solicitud a una URL entrante específica como /login y, a menudo, un verbo HTTP específico como POST y tiene un código específico para manejar esa URL y verbo precisos. Algunos ejemplos:
+
+Sirve una página web específica. Manejar una solicitud del navegador para una página web específica.
+
+Manejar una publicación de formulario específica. Por ejemplo, cuando el usuario inicia sesión en el sitio, se envía un inicio de sesión al servidor. Esto sería manejado por un controlador de solicitudes en Express como app.post("/login", ...).
+
+Responder a una solicitud de API específica. Suponga que tiene una API para un sitio web de venta de libros. Puede proporcionar en esa API la capacidad de obtener información sobre un libro por su número ISBN. Por lo tanto, diseña una API que admita una consulta para un libro en particular, como /api/book/list/0143105426, donde 0143105426 es el número ISBN del libro (un identificador de libro universal). En ese caso, crearía un controlador de solicitudes en Express para una URL similar a la siguiente: app.get('/api/book/list/:isbn', ...). El controlador de solicitudes en Express luego podría examinar programáticamente req.parms.isbn para obtener el número isbn de la solicitud, buscarlo en la base de datos y devolver la información deseada en el libro.
+
+6. ¿Cuáles son los 2 parámetros necesarios para crear una ruta para el método GET con express, ejemplo: app.get()?
+La función app.get() de Express le permite definir un controlador de ruta para solicitudes GET a una URL determinada.
+El primer páramtro es la ruta y el segundo es la función que hará de route handler.
+
+7. ¿Qué es lo que hace la instrucción res.send?
+La función res.send() básicamente envía la respuesta HTTP. El parámetro del cuerpo puede ser un objeto String o Buffer o un objeto o un Array.
+
+8. ¿Cuál es el motivo por el que express es tan popular?
+Espress.js, según sus creadores, es un framework de desarrollo de aplicaciones web minimalista y flexible para Node.js". Está inspirado en Sinatra, además es robusto, rápido, flexible y muy simple. Entre otras características, ofrece Router de URL (Get, Post, Put …), facilidades para motores de plantillas (Jade, EJS, JinJS …), Middeleware via Connect y un buen test coverage.
