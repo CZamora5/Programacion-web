@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link href="/assets/style.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <ul>
+      <!--
+        Si la id ingresada es par se crea una lista con 2 * ID elementos que digan es par y en
+        caso contario habrá ID elementos que digan es inpar
+      -->
+      <% if (ID % 2) { %>
+        <% for (let i = 0; i < ID; i++) { %>
+          <li>Es impar</li>
+        <% } %> 
+      <% } else { %> 
+        <% for (let i = 0; i < 2 * ID; i++) { %>
+          <li>Es par</li>
+        <% } %> 
+      <% } %>
+    </ul>
+  </body>
+</html>
