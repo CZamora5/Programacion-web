@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link href="/assets/style.css" type="text/css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Person: <%= ID %></h1>
+    <h2>Mensaje: <%= msg %></h2>
+    <!--
+      El siguiente fragmento de código mostrará el mensaje seleccionado "times" veces, solo hay tres mensajes válidos: "Hola". "Bienvenido" y "Adios"
+    -->
+    <% switch (msg) {
+      case 'Hola': %>
+        <% for (let i = 0; i < times; i++) { %>
+          <h3> Hola <%= ID %> </h3>
+        <% } %>
+      <% break;
+
+      case 'Bienvenido': %>
+        <% for (let i = 0; i < times; i++) { %>
+          <h3> Bienvenido <%= ID %> </h3>
+        <% } %>
+        <% break;
+
+      case 'Adios': %>
+        <% for (let i = 0; i < times; i++) { %>
+          <h3> Adios <%= ID %> </h3>
+        <% } %>
+        <% break; 
+      
+      default: %>
+        <h3>Mensaje inválido</h3>
+        <% break; 
+    } %>
+  </body>
+</html>
