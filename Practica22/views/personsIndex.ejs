@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/assets/style.css" type="text/css" rel="stylesheet" />
+  <title>Document</title>
+</head>
+<body>
+  <table width="100%">
+    <tr>
+      <th width="20%">NSS</th>
+      <th width="40%">Nombre</th>
+      <th width="20%">Edad</th>
+      <th width="20%">Tipo de sangre</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% persons.forEach(person => { %>
+      <tr>
+        <td> <%= person.nss %> </td>
+        <td> <%= person.nombre %> </td>
+        <td> <%= person.edad %> </td>
+        <td> <%= person.tipoSangre %> </td>
+        <td> <a href="<%= `deletePerson/${person._id}` %>">Delete</a> </td>
+        <td> <a href="<%= `findById/${person._id}` %>">Update</a> </td>
+      </td>
+    <% }); %> 
+  </table>
+  <br><a href="./main">Regresar</a>
+</body>
+</html>
